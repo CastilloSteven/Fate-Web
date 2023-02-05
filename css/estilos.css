@@ -50,8 +50,12 @@ button{
     flex-flow: column;
     padding: 5%;
 }
-.header__h1{}
-.header__span{}
+.header__h1{
+    font-size: 3em;
+}
+.header__span{
+    font-size: 1.5em;
+}
 
 /* nav */
 .nav{
@@ -70,7 +74,11 @@ button{
     background-color: rgb(14, 14, 14);
     overflow: hidden;
 }
-
+/* separador */
+.separador{
+    width: 100%;
+    height: 2rem;
+}
 /* section */
 .section{
     width: 140vw;
@@ -83,7 +91,7 @@ button{
     transition: transform 2s;
 }
 .section--activo{
-    transform: translateX(-35%);
+    transform: translateX(-20%);
 }
 .section__txt{
     width: 20vw;
@@ -95,39 +103,38 @@ button{
 .section__h2{
     font-size: 5em;
 }
-.section__ul{}
-.section__li{
-    font-size: 2em;
-}
-.section__btn, .historia__btn{
+.section__btn, .informacion__btn{
     color: white;
     padding: 0.5rem 1rem;
     border: 0.2rem solid white;
     margin: 1rem auto;
     transition: background 0.3s;
+    font-size: 2em;
 }
-.section__btn:hover, .historia__btn:hover{
+.section__btn:hover, .informacion__btn:hover{
     background-color: white;
     color: black;
 }
 .section__imgContenedor{
-    width: 80vw;
-    height: 90vh;
+    width: 33%;
+    height: 100%;
     top: 0;
-    left: 20vw;
+    right: 50vw;
     position: absolute;
 }
 .section__img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
+    object-fit: contain;
 }
-.seccion__historia{
+.section__informacion{
     width: 40vw;
     position: absolute;
     top: 10%;
     right: 0;
     font-size: 1.2em;
 }
-.historia__p{}
+.informacion__ul{}
+.informacion__li{
+    font-size: 1.5em;
+}
