@@ -4,137 +4,198 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Bebas Neue', sans-serif;
 }
 
 html, body{
     width: 100%;
-    font-size: 100%;
     background-color: rgb(14, 14, 14);
+    /* font-family: 'Bebas Neue', sans-serif; */
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 li{
     list-style: none;
 }
-button{
-    font-size: 1em;
-    border: none;
-    background-color: unset;
-    cursor: pointer;
-}
 
-
-/* header */
+/* encabezado */
 .header{
-    width: 100%;
-    height: 100vh;
-    background-color: aqua;
-    position: relative;
-}
-.header__img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: bottom;
-}
-.header__txt{
-    width: 30%;
-    min-width: 20rem;
-    height: 100%;
-    position: absolute;
-    background-color: rgb(14, 14, 14, 0.9);
-    top: 0;
-    color: white;
+    width: 80%;
+    height: 90vh;
+    margin: auto;
+    background-image: url(../assets/FateHeaderImage.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
     display: flex;
-    align-items: flex-start;
     justify-content: center;
-    flex-flow: column;
-    padding: 5%;
+    align-items: center;
+
 }
 .header__h1{
-    font-size: 3em;
-}
-.header__span{
-    font-size: 1.5em;
+    color: white;
+    font-size: 4em;
+    text-shadow: 0rem 0rem 1rem black;
+    text-align: center;
 }
 
-/* nav */
-.nav{
-    width: 100%;
-    position: sticky;
-    top: 0;
-    background-color: transparent;
-    z-index: 1;
-}
-.nav__ul{}
-.nav__li{}
-
-/* main */
+/* historia */
 .main{
     width: 100%;
-    background-color: rgb(14, 14, 14);
-    overflow: hidden;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.1rem;
 }
-/* separador */
-.separador{
-    width: 100%;
-    height: 2rem;
-}
-/* section */
 .section{
-    width: 140vw;
-    height: 90vh;
+    width: 80%;
     margin: 2rem auto;
-    gap: 0.5rem;
-    position: relative;
-    background-color: rgb(14, 14, 14);
     color: white;
-    transition: transform 2s;
+    border: 1px solid gray;
 }
-.section--activo{
-    transform: translateX(-20%);
-}
-.section__txt{
-    width: 20vw;
-    text-align: center;
-    position: absolute;
-    top: 20%;
-    left: 5%;
-}
-.section__h2{
-    font-size: 5em;
-}
-.section__btn, .informacion__btn{
-    color: white;
-    padding: 0.5rem 1rem;
-    border: 0.2rem solid white;
-    margin: 1rem auto;
-    transition: background 0.3s;
-    font-size: 2em;
-}
-.section__btn:hover, .informacion__btn:hover{
-    background-color: white;
-    color: black;
-}
-.section__imgContenedor{
-    width: 33%;
-    height: 100%;
-    top: 0;
-    right: 50vw;
-    position: absolute;
-}
-.section__img{
+.section__historia{
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+    position: relative;
+    padding: 5rem;
 }
-.section__informacion{
-    width: 40vw;
-    position: absolute;
-    top: 10%;
-    right: 0;
-    font-size: 1.2em;
+.historia__h2{
+    font-size: 3em;
+    padding-bottom: 1rem;
 }
-.informacion__ul{}
-.informacion__li{
+.historia__p{
     font-size: 1.5em;
+}
+.historia__decoracion-superior{
+    content: '';
+    width: 20%;
+    height: 3rem;
+    position: absolute;
+    background-color: gray;
+    top: 0;
+    right: 0;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+.historia__decoracion-inferior{
+    content: '';
+    width: 20%;
+    height: 3rem;
+    position: absolute;
+    background-color: gray;
+    bottom: 0;
+    left: 0;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+}
+
+/* galeria */
+.section__personajes{
+    width: 100%;
+    padding-bottom: 5rem;
+}
+.personajes__h2{
+    font-size: 3em;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.galeria__contenedor{
+    width: 100%;
+    margin: 2rem 0rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 1rem 0rem;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+.galeria__tarjeta{
+    min-width: 15rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    border-radius: 2rem;
+    transition: box-shadow 0.3s;
+}
+.galeria__tarjeta--archer:hover{
+    box-shadow: 0rem 0rem 0.5rem rgb(214, 65, 65);
+}
+.galeria__tarjeta--saber:hover{
+    box-shadow: 0rem 0rem 0.5rem rgb(78, 201, 241);
+}
+.galeria__tarjeta--rider:hover{
+    box-shadow: 0rem 0rem 0.5rem rgb(245, 167, 180);
+}
+.galeria__tarjeta--caster:hover{
+    box-shadow: 0rem 0rem 0.5rem rgb(158, 77, 235);
+}
+.galeria__tarjeta--assassin:hover{
+    box-shadow: 0rem 0rem 0.5rem rgb(161, 83, 250);
+}
+.galeria__tarjeta--lancer:hover{
+    box-shadow: 0rem 0rem 0.5rem rgb(94, 94, 255);
+}
+.galeria__tarjeta--berserker:hover{
+    box-shadow: 0rem 0rem 0.5rem rgb(118, 118, 118);
+}
+.galeria__img{
+    transition: transform 0.5s;
+}
+.galeria__tarjeta:hover .galeria__img{
+    transform: scale(110%);
+}
+
+
+.galeria__contenedor::-webkit-scrollbar{
+    display: none;
+}
+.galeria__btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row nowrap;
+    gap: 3rem;
+}
+.galeria__btnIzquierda, .galeria__btnDerecha{
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    cursor: pointer;
+}
+/* informacion */
+.section__informacion{
+    width: 100%;
+}
+.informacion__h2{
+    font-size: 3em;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.informacion__contenedor{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+.informacion__img--contenedor{
+    min-width: 15rem;
+    width: 50%;
+}
+/* .informacion__img{} */
+.informacion__txt{
+    width: 40%;
+    text-align: center;
+}
+.informacion__h3{
+    font-size: 2.5em;
+}
+/* .informacion__ul{} */
+.informacion__li{
+    font-size: 1.5em;;
 }

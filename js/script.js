@@ -1,97 +1,105 @@
-// const  = document.querySelectorAll('.section__btn')
-// const  = document.querySelectorAll('.informacion__btn')
-// const = document.querySelectorAll('.section')
+/* mostrar la galeria */
+const galeriaContenedor = document.querySelector('.galeria__contenedor')
 
-// .forEach((cadaBtn, i)=>{
-//     [i].addEventListener('click',()=>{
-//         [i].classList.add('section--activo')
-//     })
-// })
+InfoPersonajes.forEach((cadaPersonaje)=>{
+    let divTarjeta = document.createElement('div')
+    divTarjeta.classList.add('galeria__tarjeta', 'galeria__tarjeta--' + cadaPersonaje.css)
+    galeriaContenedor.appendChild(divTarjeta)
 
-// .forEach((cadaBtn, i)=>{
-//     [i].addEventListener('click',()=>{
-//         [i].classList.remove('section--activo')
-//     })
-// })
+    let divImg = document.createElement('img')
+    divImg.setAttribute('src', cadaPersonaje.imagen)
+    divImg.setAttribute('alt', cadaPersonaje.clase)
+    divImg.classList.add('galeria__img')
+    divTarjeta.appendChild(divImg)
+})
 
-const main = document.querySelector('.main')
+/* funcionamiento de la galeria */
+const galeriaBtnIzquierda = document.querySelector('.galeria__btnIzquierda')
+const galeriaBtnDerecha = document.querySelector('.galeria__btnDerecha')
 
-InfoPersonajes.forEach((personaje)=>{
-    let section = document.createElement('section')
-    section.classList.add('section')
-
-    let sectionTxt = document.createElement('div')
-    sectionTxt.classList.add('section__txt')
-    section.appendChild(sectionTxt)
-
-    let sectionH2 = document.createElement('h2')
-    sectionH2.classList.add('section__h2')
-    sectionH2.innerText = personaje.clase
-    sectionTxt.appendChild(sectionH2)
-
-    let sectionbtn = document.createElement('button')
-    sectionbtn.classList.add('section__btn')
-    sectionbtn.innerText = 'Información'
-    sectionTxt.appendChild(sectionbtn)
-
-    let sectionImgCont = document.createElement('div')
-    sectionImgCont.classList.add('section__imgContenedor')
-    section.appendChild(sectionImgCont)
+galeriaBtnIzquierda.addEventListener('click',()=>{
+    galeriaScrollFunction(0)
+})
+galeriaBtnDerecha.addEventListener('click',()=>{
+    galeriaScrollFunction(1)
+})
+function galeriaScrollFunction(accion) {
+    const galeriaContScroll = galeriaContenedor.scrollWidth / 7
     
-    let sectionImg = document.createElement('img')
-    sectionImg.classList.add('section__img')
-    sectionImg.setAttribute('src',personaje.imagen)
-    sectionImg.setAttribute('alt',personaje.clase)
-    sectionImgCont.appendChild(sectionImg)
+    if (accion===0) {
+        galeriaContenedor.scrollLeft -= galeriaContScroll
+    }else{
+        galeriaContenedor.scrollLeft += galeriaContScroll
+    }
+}
 
-    let sectionInfo = document.createElement('div')
-    sectionInfo.classList.add('section__informacion')
-    section.appendChild(sectionInfo)
+/* funcionamiento informacion */
 
-    let sectionUl = document.createElement('ul')
-    sectionUl.classList.add('informacion__ul')
-    sectionInfo.appendChild(sectionUl)
+const tarjetas = document.querySelectorAll('.galeria__tarjeta')
+const informacionContenedor = document.querySelector('.informacion__contenedor')
 
-    let sectionLi1 = document.createElement('li')
-    sectionLi1.classList.add('informacion__li')
-    sectionLi1.innerText = 'Nombre: ' + personaje.nombre
-    sectionUl.appendChild(sectionLi1)
+function informacionFunction(idPersonaje) {
+    informacionContenedor.textContent = ''
+    
+    let personaje = InfoPersonajes[idPersonaje]
 
-    let sectionLi2 = document.createElement('li')
-    sectionLi2.classList.add('informacion__li')
-    sectionLi2.innerText = 'Clase: ' + personaje.clase
-    sectionUl.appendChild(sectionLi2)
+    let informacionContImg = document.createElement('div')
+    informacionContImg.classList.add('informacion__img--contenedor')
+    informacionContenedor.appendChild(informacionContImg)
 
-    let sectionLi3 = document.createElement('li')
-    sectionLi3.classList.add('informacion__li')
-    sectionLi3.innerText = 'Origen: ' + personaje.origen
-    sectionUl.appendChild(sectionLi3)
+    let informacionImg = document.createElement('img')
+    informacionImg.setAttribute('src',personaje.imagen)
+    informacionImg.setAttribute('alt',personaje.nombre)
+    informacionImg.classList.add(personaje.css)
+    informacionContImg.appendChild(informacionImg)
 
-    let sectionLi4 = document.createElement('li')
-    sectionLi4.classList.add('informacion__li')
-    sectionLi4.innerText = 'Maestro: ' + personaje.maestro
-    sectionUl.appendChild(sectionLi4)
+    let informacionTxt = document.createElement('div')
+    informacionTxt.classList.add('informacion__txt')
+    informacionContenedor.appendChild(informacionTxt)
 
-    let informacionBtn = document.createElement('button')
-    informacionBtn.classList.add('informacion__btn')
-    informacionBtn.innerText = 'Volver'
-    sectionInfo.appendChild(informacionBtn)
+    let informacionH3 = document.createElement('h3')
+    informacionH3.classList.add('informacion__h3')
+    informacionH3.innerText = personaje.clase
+    informacionTxt.appendChild(informacionH3)
 
-    main.appendChild(section)
-})
+    let informacionUl = document.createElement('ul')
+    informacionUl.classList.add('informacion__ul')
+    informacionTxt.appendChild(informacionUl)
 
-const seccionBtns = document.querySelectorAll('.section__btn')
-const infoBtns = document.querySelectorAll('.informacion__btn')
-const sections = document.querySelectorAll('.section')
+    let informacionLiNom = document.createElement('li')
+    informacionLiNom.classList.add('informacion__li')
+    informacionLiNom.innerText = 'Nombre Real: ' + personaje.nombre
+    informacionUl.appendChild(informacionLiNom)
 
-seccionBtns.forEach((cadaBtn, i)=>{
-    seccionBtns[i].addEventListener('click',()=>{
-        sections[i].classList.add('section--activo')
+    let informacionLiOri = document.createElement('li')
+    informacionLiOri.classList.add('informacion__li')
+    informacionLiOri.innerText = 'Origen: ' + personaje.nombre
+    informacionUl.appendChild(informacionLiOri)
+
+    let informacionLiMae = document.createElement('li')
+    informacionLiMae.classList.add('informacion__li')
+    informacionLiMae.innerText = 'Maestro: ' + personaje.maestro
+    informacionUl.appendChild(informacionLiMae)
+}
+
+tarjetas.forEach((cadaTarjeta,i)=>{
+    tarjetas[i].addEventListener('click',()=>{
+        let idTarjeta = i
+        informacionFunction(idTarjeta)
     })
+    
 })
 
-infoBtns.forEach((cadaBtn, i)=>{
-    infoBtns[i].addEventListener('click',()=>{
-        sections[i].classList.remove('section--activo')
-    })
-})
+/*                  <div class="informacion__txt">
+                        <h3 class="informacion__h3">Nombre Personaje</h3>
+                        <ul class="informacion__ul">
+                            <li class="informacion__li">Nombre Real: qweasd</li>
+                            <li class="informacion__li">Clase: qweqwe</li>
+                            <li class="informacion__li">Origen: asdqwes</li>
+                            <li class="informacion__li">Maestro: asdqweasdqwe</li>
+                        </ul>
+                    </div>
+                </div>
+            </div> */
+
+
