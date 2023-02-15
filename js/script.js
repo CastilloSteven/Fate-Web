@@ -73,7 +73,7 @@ function informacionFunction(idPersonaje) {
 
     let informacionLiOri = document.createElement('li')
     informacionLiOri.classList.add('informacion__li')
-    informacionLiOri.innerText = 'Origen: ' + personaje.nombre
+    informacionLiOri.innerText = 'Origen: ' + personaje.origen
     informacionUl.appendChild(informacionLiOri)
 
     let informacionLiMae = document.createElement('li')
