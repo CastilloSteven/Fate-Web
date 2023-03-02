@@ -37,7 +37,7 @@ li{
 
 }
 .header__h1{
-    color: white;
+    color: rgb(206, 202, 202);
     font-size: 4em;
     text-shadow: 0rem 0rem 1rem black;
     text-align: center;
@@ -48,11 +48,12 @@ li{
     width: 100%;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 0.1rem;
+    line-height: 2rem ;
 }
 .section{
     width: 80%;
     margin: 2rem auto;
-    color: white;
+    color: rgb(199, 198, 198);
     border: 1px solid gray;
 }
 .section__historia{
@@ -189,6 +190,7 @@ li{
 .informacion__img--contenedor{
     min-width: 20rem;
     width: 50%;
+    margin-bottom: 2rem;
 }
 /* .informacion__img{} */
 .informacion__txt{
