@@ -48,7 +48,6 @@ li{
     width: 100%;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 0.1rem;
-    line-height: 2rem ;
 }
 .section{
     width: 80%;
@@ -73,7 +72,7 @@ li{
 .historia__p{
     font-size: 1.5em;
 }
-.historia__decoracion-superior{
+.historia__decoracion--superior{
     content: '';
     width: 20%;
     height: 3rem;
@@ -83,7 +82,7 @@ li{
     right: 0;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
 }
-.historia__decoracion-inferior{
+.historia__decoracion--inferior{
     content: '';
     width: 20%;
     height: 3rem;
@@ -215,5 +214,8 @@ li{
     .section{
         width: 90%;
         /* margin: 2rem auto; */
+    }
+    .section__historia{
+        padding: 5rem 1.5rem;
     }
 }
